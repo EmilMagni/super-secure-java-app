@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: super-secure-java-app
+  labels:
+    app: super-secure-java-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: super-secure-java-app
+  template:
+    metadata:
+      labels:
+        app: super-secure-java-app
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/emilmagni/super-secure-java-app:1.0.0

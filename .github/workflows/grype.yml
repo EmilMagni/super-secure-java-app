@@ -1,0 +1,35 @@
+name: grype scan
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: grype scan of the repo (cyclonedx)
+        uses: anchore/scan-action@v6
+        id: scan
+        with:
+          path: "."
+          output-format: cyclonedx-json
+          fail-build: false
+
+      - name: upload scan
+        uses: actions/upload-artifact@v4
+        with:
+          name: grype-cyclonedx
+          path: ${{ steps.scan.outputs.cyclonedx }}
+
+      - name: gate on critical cves
+        uses: anchore/scan-action@v6
+        with:
+          path: "."
+          severity-cutoff: critical
+          fail-build: true
