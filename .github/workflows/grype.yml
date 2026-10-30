@@ -19,13 +19,14 @@ jobs:
         with:
           path: "."
           output-format: cyclonedx-json
+          output-file: grype-cyclonedx.json
           fail-build: false
 
       - name: upload scan
         uses: actions/upload-artifact@v4
         with:
           name: grype-cyclonedx
-          path: ${{ steps.scan.outputs.cyclonedx }}
+          path: grype-cyclonedx.json
 
       - name: gate on critical cves
         uses: anchore/scan-action@v6
