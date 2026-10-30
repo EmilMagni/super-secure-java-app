@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * The most secure app ever written. It logs a greeting, which is exactly
+ * The most secure app ever written. Probably. It logs a greeting, which is exactly
  * the kind of thing Log4Shell turned into remote code execution when the
  * logged text came from a user. Demo only.
  */
