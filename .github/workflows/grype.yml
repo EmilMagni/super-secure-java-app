@@ -28,6 +28,15 @@ jobs:
           name: grype-cyclonedx
           path: grype-cyclonedx.json
 
+      - name: send scan to Concert
+        if: always()
+        run: |
+          curl -sf -X POST "${{ secrets.CONCERT_URL }}/ingestion/api/v1/upload_files" \
+            -H "InstanceID: ${{ secrets.CONCERT_INSTANCE_ID }}" \
+            -H "Authorization: C_API_KEY ${{ secrets.CONCERT_API_KEY }}" \
+            -F "data_type=image_scan" \
+            -F "filename=@grype-cyclonedx.json"
+
       - name: gate on critical cves
         uses: anchore/scan-action@v6
         with:
