@@ -6,7 +6,7 @@ The most secure Java app in Denmark. Probably. 🔒
 
 ## What's wrong with it
 
-`pom.xml` pins `log4j-core` and `log4j-api` to **2.14.1**, which is affected by Log4Shell:
+`pom.xml` previously pinned `log4j-core` and `log4j-api` to **2.14.1**, which was affected by Log4Shell:
 
 - CVE-2021-44228 (critical, remote code execution)
 - CVE-2021-45046, CVE-2021-45105, CVE-2021-44832 (the follow-ups)
@@ -18,10 +18,10 @@ The finding lives in the code (a declared dependency), so a repository scan catc
 One line in `pom.xml`:
 
 ```xml
-<log4j.version>2.25.5</log4j.version>
+<log4j.version>2.26.1</log4j.version>
 ```
 
-(2.17.1 already clears the critical Log4Shell CVEs; 2.25.5 clears every known log4j finding). Push, and the Grype gate in `.github/workflows/grype.yml` goes green.
+(2.17.1 already clears the critical Log4Shell CVEs; 2.26.1 is the latest 2.x release and clears all 9 known log4j findings including CVE-2026-49844, CVE-2026-34477, CVE-2026-34479, CVE-2026-34480). Push, and the Grype gate in `.github/workflows/grype.yml` goes green.
 
 ## Demo flow
 
