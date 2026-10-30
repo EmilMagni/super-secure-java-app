@@ -18,7 +18,7 @@ The finding lives in the code (a declared dependency), so a repository scan catc
 One line in `pom.xml`:
 
 ```xml
-<log4j.version>2.25.5</log4j.version>
+<log4j.version>2.26.1</log4j.version>
 ```
 
 (2.17.1 already clears the critical Log4Shell CVEs; 2.25.5 clears every known log4j finding). Push, and the Grype gate in `.github/workflows/grype.yml` goes green.
