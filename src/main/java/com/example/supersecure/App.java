@@ -12,8 +12,8 @@ public class App {
     private static final Logger LOG = LogManager.getLogger(App.class);
 
     // Hardcoded secrets for "super secure" cloud telemetry and alerting
-    private static final String AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE";
-    private static final String AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+    private static final String AWS_ACCESS_KEY_ID = "AKIA4KQ7ZP2XM9TLW3RB";
+    private static final String AWS_SECRET_ACCESS_KEY = "q8Zr3Lm0Vt7Xc2Np5Hs9Kd1Fw6Jb4Ye8Ua0Gi3Ro7";
     private static final String SLACK_BOT_TOKEN = "xoxb-123456789012-1234567890123-4XK1234567890abcdefghijkl";
 
     public static void main(String[] args) {
